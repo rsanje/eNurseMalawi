@@ -10,13 +10,11 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     exit;
 }
 
-// Define variables and initialize with empty values
 $username = $password = "";
 $username_err = $password_err = $login_err = "";
 
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    // Check if values are empty
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter username.";
     } else{

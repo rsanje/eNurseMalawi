@@ -46,7 +46,7 @@ if($stmt = $conn->prepare($sql)){
 }
 
 // Close connection
-$conn->close();
+// $conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -76,11 +76,29 @@ $conn->close();
         <p><strong>Address:</strong> <?php echo $address; ?></p>
     </div>
 
+    
+
+
+
     <!-- Logout Button -->
     <div class="flex items-center justify-center">
         <a href="logout.php" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Logout</a>
     </div>
 </div>
 
+    <div class="flex items-center justify-center">
+        <a href="add_employment.php" class="bg-blue-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Add Employment</a>
+    </div>
+    <div class="flex items-center justify-center">
+        <a href="add_qualification.php" class="bg-blue-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Add Qualification</a>
+    </div>
+    <?php
+        // Include employment history file
+      require_once 'emp_history.php';
+    ?>
+    <?php
+        // Include education history file
+      require_once 'qual_history.php';
+    ?>
 </body>
 </html>

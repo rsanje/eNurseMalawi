@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS nurse (
     reg_no VARCHAR(30) UNIQUE,
     speciality VARCHAR(50) NOT NULL,
     reg_status VARCHAR(20) NOT NULL
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Employment Table
@@ -38,6 +39,7 @@ CREATE TABLE IF NOT EXISTS employment (
     emp_no INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES users(user_id),
+    emp_name VARCHAR(255) NOT NULL;
     start_date DATE NOT NULL,
     end_date DATE,
     position VARCHAR(30) NOT NULL,
@@ -47,6 +49,9 @@ CREATE TABLE IF NOT EXISTS employment (
     emp_email VARCHAR(50),
     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+ALTER TABLE employement
+ADD COLUMN emp_name VARCHAR(255) NOT NULL;
 
 -- License Table
 CREATE TABLE IF NOT EXISTS license (
@@ -64,6 +69,7 @@ CREATE TABLE IF NOT EXISTS license (
     amount VARCHAR(20) NOT NULL,
     receipt_no VARCHAR(30),
     mode_of_payment VARCHAR(30)
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Staff Table
@@ -83,7 +89,7 @@ CREATE TABLE IF NOT EXISTS staff (
 
 -- Qualification Table
 CREATE TABLE IF NOT EXISTS qualification (
-    qualification_no VARCHAR(30) PRIMARY KEY,
+    qualification_no INT AUTO_INCREMENT PRIMARY KEY,,
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES users(user_id),
     institution VARCHAR(50) NOT NULL,
