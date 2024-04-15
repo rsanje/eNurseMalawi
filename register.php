@@ -1,8 +1,10 @@
 <?php
+session_start();
+
 // Include requiredfiles
 require_once 'db.php';
-
-session_start(); 
+require 'header.php';
+ 
 // Check if the user is already logged in
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("location: dashboard.php");
@@ -145,3 +147,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 </body>
 </html>
+
+<?php require 'footer.php' ; ?>

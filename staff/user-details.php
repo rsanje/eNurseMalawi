@@ -1,23 +1,28 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
+global $user_id;
+// Start session and check if user is logged in
 session_start();
 
-// Check if the user is not logged in
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: home.php");
+// Include database connection
+require_once '../db.php';
+require 'header.php';
+
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    header("location: login.php");
     exit;
 }
 
-// Include required files
-require_once 'config.php';
-require_once 'db.php';
-require 'header.php';
+// Check if user_id is provided in the URL
+if (!isset($_GET['user_id']) || empty($_GET['user_id'])) {
+    header("location: user.php");
+    exit;
+}
 
-$user_id = $_SESSION["user_id"];
 
+
+// Fetch user details based on user_id
+$user_id = $_GET['user_id'];
 $sql = "SELECT *
         FROM users u
         LEFT JOIN nurse n ON u.user_id = n.user_id
@@ -41,10 +46,11 @@ if ($stmt = $conn->prepare($sql)) {
 }
 ?>
 
-<div class="container mx-auto px-4 mt-8 max-w-md">
-    <h1 class="text-2xl font-bold mb-4">Dashboard</h1>
 
-     <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+
+<div class="container mx-auto px-4 mt-8">
+    <!-- Display user details -->
+    <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <h1 class="text-xl font-bold mb-2">User Details</h1>
         <p><strong>Username:</strong> <?php echo $userDetails['username']; ?></p>
         <p><strong>Full Name:</strong> <?php echo $userDetails['first_name'] . ' ' . $userDetails['other_names'] . ' ' . $userDetails['last_name']; ?></p>
@@ -59,50 +65,40 @@ if ($stmt = $conn->prepare($sql)) {
         <p class="mt-4"><a href="edit-user.php?user_id=<?php echo $user_id; ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Edit Details</a></p>      
     </div>
 
-     <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <h1 class="text-xl font-bold mb-2">Nurse Registration Details</h1>
         <p><strong>Registration Number:</strong> <?php echo $userDetails['reg_no']; ?></p>
         <p><strong>Speciality:</strong> <?php echo $userDetails['speciality']; ?></p>
         <p><strong>Registration Status:</strong> <?php echo $userDetails['reg_status']; ?></p>
         <p class='mt-4'><a href="edit-nurse.php?user_id=<?php echo $user_id; ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold  py-2 px-4 rounded focus:outline-none focus:shadow-outline">Edit Details</a></p> 
     </div>
-
-</div>
-<div class="bg-white shadow-md px-8 pt-6 pb-8 mb-4">
-    <?php
-        // Include employment history file
-      require_once 'view-employment.php';
-    ?>
-
-      <!-- Employment -->
-    <div class="flex items-center justify-center">
-        <a href="add-employment.php" class="bg-blue-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Add Employment</a>
-    </div>
-    </div>
-<div class="bg-white shadow-md px-8 pt-6 pb-8 mb-4">
-    <?php
-        // Include education history file
-      require_once 'view-qualification.php';
-    ?>
-
-    <div class="flex items-center justify-center">
-        <a href="add-qualification.php" class="bg-blue-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Add Qualification</a>
-    </div>
+    
+     <div class="bg-white shadow-md px-8 pt-6 pb-8 mb-4">
+                   
+        <?php
+            // Include education history file
+            require_once 'view-qualification.php';
+        ?>
     </div>
 
-  
-    <!-- Qualifications -->
     <div class="bg-white shadow-md px-8 pt-6 pb-8 mb-4">
-    <?php
-        // Include document history file
-      require_once 'view-document.php';
-    ?>
+        <?php
+            // Include education history file
+            require_once 'view-employment.php';
+        ?>
+    </div>
 
-    <div class="flex items-center justify-center">
-        <a href="add-document.php" class="bg-blue-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Add Documents</a>
+    <div class="bg-white shadow-md px-8 pt-6 pb-8 mb-4">
+               
+        <?php
+            // Include education history file
+            require_once 'view-document.php';
+        ?>
     </div>
-    </div>
+
+
+    
+</div>
+
 </body>
 </html>
-
-<?php require 'footer.php'; ?>

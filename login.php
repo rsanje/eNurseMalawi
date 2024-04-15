@@ -1,8 +1,10 @@
 <?php
-// Include required files
-require_once 'db.php';
 
 session_start(); // Initialize the session
+
+// Include required files
+require_once 'db.php';
+require 'header.php';
 
 // Check if the user is already logged in
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
@@ -61,15 +63,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-100">
 <div class="container mx-auto px-4 mt-8 max-w-md">
     <h1 class="text-2xl font-bold mb-4">Login</h1>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -91,5 +84,4 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </form>
 </div>
 
-</body>
-</html>
+<?php require 'footer.php'; ?>
