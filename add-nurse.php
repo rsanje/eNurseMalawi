@@ -1,7 +1,5 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 
 // Start session and check if user is logged in
 session_start();
@@ -12,6 +10,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
 // Include database connection
 require_once 'db.php';
+require 'header.php';
 
 // Initialize variables
 $emp_code = $_SESSION["emp_code"]; // Retrieve emp_code from session
@@ -77,8 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-require 'header.php';
-// Close connection
+
 $conn->close();
 ?>
 

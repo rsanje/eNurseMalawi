@@ -1,11 +1,6 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-// Include required files
-require_once 'config.php';
 require_once 'db.php';
+require 'header.php';
 
 session_start(); 
 
@@ -61,21 +56,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-
 <body class="bg-gray-100 p-6">
-    <div class="container mx-auto px-4">
+    <div class="container mx-auto px-4 ">
         <h2 class="text-3xl font-bold mb-6">Upload Document</h2>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data" class="w-6/12">
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="description">Description</label>
                 <input type="text" name="description" id="description" class="form-input mt-1 block w-full" value="<?php echo $description; ?>">

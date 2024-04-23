@@ -12,7 +12,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 }
 
 // Include required files
-require_once 'config.php';
 require_once 'db.php';
 require 'header.php';
 
