@@ -115,3 +115,11 @@ CREATE TABLE IF NOT EXISTS document (
     upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Admin Default details to add staff
+INSERT INTO users (username, password, first_name, last_name, national_id, birth_date, place_of_birth, nationality, gender, email, phone, address)
+VALUES ('admin', 'adminpassword', 'Admin', 'User', '1234567890123', '1990-01-01', 'AdminCity', 'Malawian', 'Male', 'admin@example.com', '123456789', 'AdminAddress');
+
+-- Admin role 
+INSERT INTO staff (emp_code, user_id, department, position, start_date, email, phone, role)
+VALUES ('ADMIN001', 1, 'Administration', 'Admin', '2022-01-01', 'admin@example.com', '123456789', 'admin');
+

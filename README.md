@@ -12,6 +12,7 @@ The poject is Developed as part of Final Computer Science based on real requirem
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Installation](#installation)
+      - [Fist login](#fist-login)
 
 ## Introduction
 The Project focuses on developing a Nurse registration and licensing system based on the setup of the Nursing and Midwives council of Malawi. A literature review was one to study similar systems available in other countries. The requirements of the project have been gathered based, analysed and then prioritised using MoSCoW.
@@ -37,7 +38,7 @@ List of software or tools needed to run the project.
 - Lamp for linux user / Wamp for Windows Users and Mamp for Mac Users
 - Code editor (e.g Visual Studio Code[vscode])
 - Internet Browser
-- Git bash
+- Git
 
 ### Installation
 
@@ -59,3 +60,6 @@ $username = 'root';
 $password = ''; 
 $database = 'nmcm';
 ```
+#### Fist login
+- Username: `admin`
+- Password: `adminpassword`

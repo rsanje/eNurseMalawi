@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         // Redirect user based on their role
                         if ($role == 'HR' || $role == 'admin') {
                             header("location: staff.php");
-                        } elseif ($role == 'registration_officer') {
+                        } elseif ($role == 'RO') {
                             header("location: dashboard.php");
                         } else {
                             // Redirect to a default page if the role is not recognized
