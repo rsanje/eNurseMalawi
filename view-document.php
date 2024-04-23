@@ -1,8 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 $user_id = $_SESSION["user_id"]; // Getting the user_id from the URL
 
 // Prepare a statement with a parameterized query to fetch documents uploaded by the user
@@ -46,7 +42,8 @@ if ($stmt = $conn->prepare($sql)) {
                     <td class="text-sm text-gray-700"><?= $document['description']; ?></td>
                     <td class="text-sm text-gray-700"><?= date('F j, Y', strtotime($document['upload_date'])); ?></td>
                     <td class="text-sm text-gray-700">
-                        <a href="../download-document.php?document_id=<?php echo $document['document_id']; ?>" class="text-blue-500 hover:underline"><?= $document['filename']; ?></a>
+                        <a href="../download-document.php?document_id=<?php echo $document['document_id']; ?>" 
+                        class="text-blue-500 hover:underline"><?= $document['filename']; ?></a>
                     </td>
                 </tr>
             <?php endforeach; ?>

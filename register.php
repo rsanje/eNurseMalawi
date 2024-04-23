@@ -45,50 +45,40 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Page</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-100">
-
-<div class="container mx-auto px-4 mt-8 max-w-md">
+<div class="container mx-auto px-4 mt-8 max-w-xl">
   <h1 class="text-2xl font-bold mb-4">Registration</h1>
 
     <!-- Registration Form -->
   <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
 
-    <div class="mb-4">
-        <label for="username" class="block text-gray-700 text-sm font-bold mb-2">Username</label>
-        <input type="text" id="username" name="username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Username" required>
+    <div class="mb-2 flex items-center justify-between">
+        <label for="username" class=" text-gray-700 text-sm font-bold mr-2">Username: </label>
+        <input type="text" id="username" name="username" class="shadow appearance-none border rounded w-9/12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Username" required>
     </div>    
 
-    <div class="flex mb-4">
-        <div class="mr-2 w-1/2">
-            <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+    <div class="flex mb-2">
+        <div class="mr-2 w-1/2 flex items-center">
+            <label for="password" class=" text-gray-700 text-sm font-bold mr-2">Password: </label>
             <input type="password" id="password" name="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Password" required>
         </div>
-        <div class="ml-2 w-1/2">
-            <label for="confirm_password" class="block text-gray-700 text-sm font-bold mb-2">Confirm Password</label>
+        <div class="ml-2 w-1/2 flex items-center">
+            <label for="confirm_password" class=" text-gray-700 text-sm font-bold mb-2">Confirm Password: </label>
             <input type="password" id="confirm_password" name="confirm_password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Confirm Password" required>
         </div>
     </div>
 
-    <div class="mb-4">
-        <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
-        <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Email" required>
+    <div class="mb-2 flex items-center justify-between">
+        <label for="email" class="text-gray-700 text-sm font-bold mr-2">Email: </label>
+        <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-9/12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Email" required>
     </div>
 
-    <div class="mb-4">
-        <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Phone</label>
-        <input type="text" id="phone" name="phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Phone" required>
+    <div class="mb-2 flex items-center justify-between">
+        <label for="phone" class="text-gray-700 text-sm font-bold mr-2">Phone: </label>
+        <input type="text" id="phone" name="phone" class="shadow appearance-none border rounded w-9/12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Phone" required>
     </div>
 
-    <div class="flex mb-4">
+    <div class="flex mb-2">
         <div class="mr-2 w-1/2">
             <label for="first_name" class="block text-gray-700 text-sm font-bold mb-2">First Name</label>
             <input type="text" id="first_name" name="first_name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="First Name" required>
@@ -99,12 +89,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
     </div>
 
-    <div class="mb-4">
-        <label for="national_id" class="block text-gray-700 text-sm font-bold mb-2">National ID</label>
-        <input type="text" id="national_id" name="national_id" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="National ID" required>
+    <div class="mb-2 flex items-center justify-between">
+        <label for="national_id" class="text-gray-700 text-sm font-bold mr-2">National ID: </label>
+        <input type="text" id="national_id" name="national_id" class="shadow appearance-none border rounded w-9/12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="National ID" required>
     </div>
 
-    <div class="flex mb-4">
+    <div class="flex mb-2">
         <div class="mr-2 w-1/2">
             <label for="birth_date" class="block text-gray-700 text-sm font-bold mb-2">Date of Birth</label>
             <input type="date" id="birth_date" name="birth_date" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Birth Date" required>
@@ -115,22 +105,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
     </div>
 
-    <div class="mb-4">
-        <label for="nationality" class="block text-gray-700 text-sm font-bold mb-2">Nationality</label>
-        <input type="text" id="nationality" name="nationality" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Nationality" required>
+    <div class="mb-2 flex items-center justify-between">
+        <label for="nationality" class=" text-gray-700 text-sm font-bold mb-2 w-md">Nationality: </label>
+        <input type="text" id="nationality" name="nationality" class="shadow appearance-none border rounded w-9/12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Nationality" required>
     </div>
 
-    <div class="mb-4">
-        <label for="gender" class="block text-gray-700 text-sm font-bold mb-2">Gender</label>
-        <select id="gender" name="gender" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+    <div class="mb-4 flex items-center justify-between">
+        <label for="gender" class="text-gray-700 text-sm font-bold mr-2 ">Gender:</label>
+        <select id="gender" name="gender" class="shadow appearance-none border rounded w-9/12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
             <option value="" disabled selected hidden>Choose Your Gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
         </select>
     </div>
 
-    <div class="mb-4">
-        <label for="address" class="block text-gray-700 text-sm font-bold mb-2">Address</label>
+    <div class="mb-4 flex items-center">
+        <label for="address" class=" text-gray-700 text-sm font-bold mr-2">Address:</label>
         <input type="text" id="address" name="address" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Address" required>
     </div>
 
@@ -145,7 +135,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <?php endif; ?>
 </div>
 
-</body>
-</html>
 
 <?php require 'footer.php' ; ?>

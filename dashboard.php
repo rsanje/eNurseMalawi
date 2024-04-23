@@ -102,7 +102,5 @@ if ($stmt = $conn->prepare($sql)) {
         <a href="add-document.php" class="bg-blue-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Add Documents</a>
     </div>
     </div>
-</body>
-</html>
 
 <?php require 'footer.php'; ?>

@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 // Start session and check if user is logged in
 session_start();
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-    header("location: login.php");
+    header("location: home.php");
     exit;
 }
 

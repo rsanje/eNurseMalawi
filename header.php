@@ -11,7 +11,7 @@
         .table-auto th, .table-auto td {
             text-align: left;
             padding: 0.25rem 0.5rem; /* Adjust padding as needed */
-            margin: 0; /* Remove unwanted margin */
+            margin: 0;
         }
     </style>
   
